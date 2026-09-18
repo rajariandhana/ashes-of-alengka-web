@@ -109,8 +109,8 @@ export default function BehindTheScenes() {
             It all starts from a Game Jam
           </h1>
           <p className="max-w-xl text-alengka-cream/75">
-            Six people, one weekend, and a lot of decisions we would not have made
-            with more time.
+            Six people, one weekend, and a lot of decisions we would not have
+            made with more time.
           </p>
         </motion.div>
       </section>
@@ -119,7 +119,7 @@ export default function BehindTheScenes() {
       <section className="flex w-full justify-center bg-alengka-night py-20 sm:py-28">
         <AppearSection className="flex w-full max-w-3xl flex-col gap-5 px-6">
           <span className="alengka-eyebrow">
-            01 &middot; Before anything existed
+            01 &middot; Before Anything Existed
           </span>
           <h2 className="alengka-heading">
             A team that met four hours before the jam
@@ -132,26 +132,28 @@ export default function BehindTheScenes() {
           </p>
           <p className="text-justify text-alengka-cream/75">
             We dropped it and asked a better question: what do we already know
-            that nobody else at this jam is going to make? The answer was
-            sitting in all of our childhoods. Wayang kulit, the Javanese shadow
-            puppet theatre, where one puppeteer works a whole cast of leather
-            puppets against a lamp-lit cloth screen and narrates an epic until
-            sunrise.
+            that nobody else at this jam is going to make? That's when we
+            realised something simple, all six of us came from Indonesia. The
+            answer was staring at us: wayang kulit, one of Indonesia's most
+            celebrated traditional art forms, a shadow puppet theatre where one
+            puppeteer works a whole cast of leather puppets against a lamp-lit
+            cloth screen and narrates an epic until sunrise.
           </p>
         </AppearSection>
       </section>
       {/* ── The pivot ────────────────────────────────────────────── */}
       <section className="flex w-full justify-center bg-alengka-ink py-20 sm:py-28">
         <AppearSection className="flex w-full max-w-3xl flex-col gap-6 px-6">
-          <span className="alengka-eyebrow">02 &middot; The pivot</span>
+          <span className="alengka-eyebrow">02 &middot; The Pivot</span>
           <h2 className="alengka-heading">
             Seventeen hours out, the game was not working
           </h2>
           <p className="text-justify text-alengka-cream/75">
-            The original build had a player and an enemy and physics and none of
-            it was fun. With well under a day left we stopped adding and asked
-            what the puppets were actually good at. They are held on sticks.
-            They lean. They flail. That is a fighting game, not a platformer.
+            Seventeen hours out, the game was not working The original build had
+            a player and an enemy and physics and none of it was fun. With well
+            under six hours left, we stopped adding and asked what the puppets
+            were actually good at. They are held on sticks. They lean. They
+            flail. That is a fighting game, not a platformer.
           </p>
           <p className="text-justify text-alengka-cream/75">
             The commit where that decision landed is still in the history, and
@@ -309,14 +311,14 @@ export default function BehindTheScenes() {
       {/* ── Result ───────────────────────────────────────────────── */}
       <section className="flex w-full justify-center bg-alengka-ink py-20 sm:py-28">
         <AppearSection className="flex w-full max-w-3xl flex-col items-center gap-6 px-6">
-          <span className="alengka-eyebrow">07 &middot; The result</span>
+          <span className="alengka-eyebrow">07 &middot; The Result</span>
           <h2 className="alengka-heading text-center">Best Story / Art</h2>
           <p className="text-center text-alengka-cream/75">
-            We won the story and art category. The part I keep thinking about is
-            that the thing the judges responded to was the thing we nearly did
-            not make. A soulslike would have been a worse game and a much worse
-            story, and we only found this one because we ran out of time and had
-            to be honest about what we were good at.
+            We won the story and art category. The part we keep thinking about
+            is that the thing the judges responded to was the thing we nearly
+            did not make. A soulslike would have been a worse game and a much
+            worse story, and we only found this one because we ran out of time
+            and had to be honest about what we were good at.
           </p>
 
           <div className="mt-4 grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
@@ -335,14 +337,16 @@ export default function BehindTheScenes() {
       {/* ── After ────────────────────────────────────────────────── */}
       <section className="flex w-full justify-center bg-alengka-ink py-20 sm:py-28">
         <AppearSection className="flex w-full max-w-3xl flex-col gap-6 px-6">
-          <span className="alengka-eyebrow">08 &middot; After the jam</span>
-          <h2 className="alengka-heading">I kept going back to it</h2>
+          <span className="alengka-eyebrow">08 &middot; After The Jam</span>
+          <h2 className="alengka-heading">We kept going back to it</h2>
           <p className="text-justify text-alengka-cream/75">
             Jam code is jam code, and this one had a to-do list sitting in the
-            README. Over the following weeks I went back and gave it a proper
+            README. Over the following months we went back and gave it a proper
             main menu, a pause menu, a win screen and game over flow, the attack
             cooldown indicator, and finally pulled the fighter apart into the
-            state machine it should have been from the start.
+            state machine it should have been from the start. We also added more
+            characters and a leaderboard, so there was more to play and more
+            reason to come back and beat your friends' scores
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a

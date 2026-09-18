@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import DalangShadow from "./DalangShadow.jsx";
+import Dalang from "./Dalang.jsx";
+import DalangFrame from "./DalangFrame.jsx";
 
 /**
  * Interactive explode of the arena scene.
@@ -9,7 +10,8 @@ import DalangShadow from "./DalangShadow.jsx";
  * SubViewport. That viewport's texture is then painted onto a QuadMesh sitting
  * inside a Node3D world, so everything else in the shot — the cloth, the fog,
  * the drifting clouds, the fire, the dalang's shadow — is real 3D geometry in
- * front of and behind a flat 2D game.
+ * front of and behind a flat 2D game, all of it seen through the carved
+ * gawang frame.
  */
 
 const LAYERS = [
@@ -46,7 +48,14 @@ const LAYERS = [
     depth: 4,
     title: "The dalang's shadow",
     detail:
-      "Nearest the camera: the puppeteer himself, blocking the bottom of the screen exactly the way he would at a real performance.",
+      "The puppeteer himself, blocking the bottom of the screen exactly the way he would at a real performance.",
+  },
+  {
+    id: "gawang",
+    depth: 5,
+    title: "Gawang frame",
+    detail:
+      "Nearest the camera: the carved frame the kelir is strung inside. Everything else in the stack is seen through its opening.",
   },
 ];
 
@@ -58,8 +67,9 @@ export default function KelirStack() {
   const activeLayer = LAYERS.find((layer) => layer.id === active);
 
   // pivot the spread around the middle layer so the stack stays centred
+  const mid = (LAYERS.length - 1) / 2;
   const layerStyle = (depth) => ({
-    transform: `translateZ(${(depth - 2) * t * 88}px)`,
+    transform: `translateZ(${(depth - mid) * t * 78}px)`,
     opacity: active === LAYERS[depth].id || t < 0.08 ? 1 : 0.45,
     // once the stack is pulled apart, outline each plane so you can see where
     // one layer ends and the next begins
@@ -127,14 +137,14 @@ export default function KelirStack() {
               <div className="h-2 flex-1 rounded-full bg-alengka-blood" />
             </div>
             <img
-              src="/assets/anoman-body.png"
+              src="/assets/anoman-full.png"
               alt="Anoman"
               className="h-[62%] w-auto object-contain"
             />
             <img
-              src="/assets/dasamuka-body.png"
+              src="/assets/dasamuka-full.png"
               alt="Dasamuka"
-              className="h-[58%] w-auto -scale-x-100 object-contain"
+              className="h-[64%] w-auto -scale-x-100 object-contain"
             />
           </div>
 
@@ -170,11 +180,17 @@ export default function KelirStack() {
             onMouseEnter={() => setActive("dalang")}
             onClick={() => setActive("dalang")}
           >
-            <DalangShadow
-              className="absolute bottom-0 left-1/2 h-[42%] w-[46%] -translate-x-1/2 drop-shadow-[0_0_24px_rgba(0,0,0,0.9)]"
-              fill="#050302"
-              stroke="rgba(230,200,119,0.45)"
-            />
+            <Dalang className="h-40 sm:h-50 drop-shadow-[0_0_24px_rgba(0,0,0,0.9)]" />
+          </div>
+
+          {/* 5 — gawang frame */}
+          <div
+            className="absolute h-[70%] w-[78%] transition-opacity duration-300"
+            style={layerStyle(5)}
+            onMouseEnter={() => setActive("gawang")}
+            onClick={() => setActive("gawang")}
+          >
+            <DalangFrame />
           </div>
         </div>
       </div>

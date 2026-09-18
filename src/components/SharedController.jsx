@@ -10,14 +10,14 @@ import { motion, AnimatePresence } from "motion/react";
 const SIDES = {
   left: {
     label: "Player 1 · Anoman",
-    sprite: "/assets/anoman-body.png",
+    sprite: "/assets/anoman-full.png",
     keys: "Left stick to lean · D-pad to swing",
     keyboard: "WASD · C",
     color: "#E6C877",
   },
   right: {
     label: "Player 2 · Dasamuka",
-    sprite: "/assets/dasamuka-body.png",
+    sprite: "/assets/dasamuka-full.png",
     keys: "Right stick to lean · ABXY to swing",
     keyboard: "IJKL · N",
     color: "#D4574E",
