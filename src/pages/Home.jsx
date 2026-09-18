@@ -5,7 +5,6 @@ import { LuArrowRight, LuExternalLink } from "react-icons/lu";
 
 import AppearSection from "../components/AppearSection.jsx";
 import SharedController from "../components/SharedController.jsx";
-import DalangShadow from "../components/DalangShadow.jsx";
 import { PLAY_LINK } from "../constants.js";
 
 const LOADING_DURATION = 1800;
@@ -98,9 +97,24 @@ export default function Home() {
         >
           <div className="alengka-flicker pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-alengka-flame/20 blur-[150px]" />
 
-          <Awan src="/assets/awan-1.png" className="left-[4%] top-[14%] w-40 sm:w-64" duration={13} drift={40} />
-          <Awan src="/assets/awan-2.png" className="right-[6%] top-[10%] w-32 sm:w-52" duration={17} drift={-34} />
-          <Awan src="/assets/awan-3.png" className="right-[16%] bottom-[26%] w-28 sm:w-44" duration={21} drift={26} />
+          <Awan
+            src="/assets/awan-1.png"
+            className="left-[4%] top-[14%] w-40 sm:w-64"
+            duration={13}
+            drift={40}
+          />
+          <Awan
+            src="/assets/awan-2.png"
+            className="right-[6%] top-[10%] w-32 sm:w-52"
+            duration={17}
+            drift={-34}
+          />
+          <Awan
+            src="/assets/awan-3.png"
+            className="right-[16%] bottom-[26%] w-28 sm:w-44"
+            duration={21}
+            drift={26}
+          />
 
           <motion.div
             style={{ opacity: heroFade, y: heroLift }}
@@ -121,9 +135,9 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              A local multiplayer shadow-puppet fighting game, built in Godot over
-              a 48 hour jam weekend. Two players share one controller, the way two
-              hands share one dalang.
+              A local multiplayer shadow-puppet fighting game, built in Godot
+              over a 48 hour jam weekend. Two players share one controller, the
+              way two hands share one dalang.
             </motion.p>
 
             <motion.div
@@ -147,7 +161,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          <DalangShadow className="absolute bottom-0 left-1/2 h-[22vh] w-[70vw] -translate-x-1/2 sm:w-[42vw] lg:w-[32vw]" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-b from-transparent to-alengka-night" />
 
           <motion.span
@@ -164,39 +177,50 @@ export default function Home() {
           <AppearSection className="flex w-full max-w-5xl flex-col items-center gap-10 px-6 lg:flex-row lg:gap-16">
             <div className="flex shrink-0 items-end justify-center gap-4">
               <motion.img
-                src="/assets/anoman-body.png"
+                src="/assets/anoman-full.png"
                 alt="Anoman, the white monkey"
                 className="h-44 w-auto object-contain sm:h-60"
                 animate={{ rotate: [-4, 4, -4] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 style={{ transformOrigin: "50% 100%" }}
               />
               <motion.img
-                src="/assets/dasamuka-body.png"
+                src="/assets/dasamuka-full.png"
                 alt="Dasamuka, the ten-faced king"
-                className="h-40 w-auto -scale-x-100 object-contain sm:h-56"
+                className="h-46 w-auto -scale-x-100 object-contain sm:h-62"
                 animate={{ rotate: [5, -3, 5] }}
-                transition={{ duration: 6.4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 6.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 style={{ transformOrigin: "50% 100%" }}
               />
             </div>
 
             <div className="flex flex-col gap-5">
               <span className="alengka-eyebrow">01 &middot; The story</span>
-              <h2 className="alengka-heading">Anoman, Dasamuka, and a kingdom on fire</h2>
+              <h2 className="alengka-heading">
+                Anoman, Dasamuka, and a kingdom on fire
+              </h2>
               <p className="text-justify text-alengka-cream/75">
-                We took the fight everybody already knows from the Ramayana.
-                Anoman, the white monkey, against Dasamuka, the ten-faced king of
-                Alengka. In the story Anoman is captured and set alight, and he
-                burns the kingdom down with his own tail. That is where the title
-                comes from, and it is why there is fire in every single frame of
-                this game.
+                We took the fight most people already know from the Ramayana.
+                Anoman, the white monkey, against Dasamuka, the ten-faced king
+                of Alengka. In the story, Anoman is captured and set alight, and
+                he burns the kingdom down with his own tail. That is where the
+                title comes from, and it is why there is fire in every single
+                frame of this game.
               </p>
               <p className="text-justify text-alengka-cream/75">
-                Choosing a story everyone on the team grew up with meant nobody had
-                to be briefed. The artists knew what the characters looked like,
-                what the cloud motifs meant, what the frame around a wayang screen
-                is supposed to be. That saved us hours we did not have.
+                Choosing a story everyone on the team grew up with meant nobody
+                had to be briefed. The artists knew what the characters looked
+                like, what the cloud motifs meant, and what the frame around a
+                wayang screen is supposed to be. That saved us hours we did not
+                have.
               </p>
             </div>
           </AppearSection>
@@ -206,19 +230,21 @@ export default function Home() {
         <section className="flex w-full justify-center bg-linear-to-b from-alengka-ink to-alengka-night py-20 sm:py-28">
           <AppearSection className="flex w-full max-w-3xl flex-col gap-6 px-6">
             <span className="alengka-eyebrow">02 &middot; How it plays</span>
-            <h2 className="alengka-heading">One controller, split down the middle</h2>
+            <h2 className="alengka-heading">
+              One controller, split down the middle
+            </h2>
             <p className="text-justify text-alengka-cream/75">
-              A dalang works two puppets with two hands. So we gave two players one
-              controller and cut it in half. Player one holds the left grip and
-              owns the left analog stick and the d-pad. Player two holds the right
-              grip and owns the right stick and the face buttons. You end up
-              shoulder to shoulder with the person you are trying to beat, elbowing
-              each other over a single pad.
+              A dalang works two puppets with two hands, so we gave two players
+              one controller and cut it in half. Player one holds the left grip
+              and owns the left analog stick and the d-pad. Player two holds the
+              right grip and owns the right stick and the face buttons. You end
+              up shoulder to shoulder with the person you are trying to beat,
+              elbowing each other over a single pad.
             </p>
             <p className="text-justify text-alengka-cream/75">
-              Tilting the stick does not move a character sprite around a level. It
-              leans the puppet, holds the lean for half a second, then lets it fall
-              back upright, exactly like tipping a rod.
+              Tilting the stick does not move a character sprite around a level.
+              It leans the puppet, holds the lean for half a second, then lets
+              it fall back upright, exactly like tipping a rod.
             </p>
             <SharedController />
           </AppearSection>
@@ -231,7 +257,11 @@ export default function Home() {
             <h2 className="alengka-heading">More from the kelir</h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {EXPLORE.map((item) => (
-                <Link key={item.to} to={item.to} className="alengka-shot group flex flex-col bg-alengka-ink/70">
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="alengka-shot group flex flex-col bg-alengka-ink/70"
+                >
                   <div className="overflow-hidden">
                     <img
                       src={item.image}
@@ -245,7 +275,9 @@ export default function Home() {
                       {item.title}
                       <LuArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
-                    <span className="text-sm text-alengka-cream/65">{item.body}</span>
+                    <span className="text-sm text-alengka-cream/65">
+                      {item.body}
+                    </span>
                   </div>
                 </Link>
               ))}

@@ -78,9 +78,9 @@ export default function CombatLoop() {
 
         <div className="flex items-center gap-4">
           <motion.img
-            src="/assets/attack-indicator.png"
+            src="/assets/kris-jawa.png"
             alt="Attack indicator"
-            className="h-12 w-12"
+            className="h-20 w-20"
             animate={{ opacity: state === "READY" ? 1 : 0.5 }}
             transition={{ duration: 0.25 }}
           />

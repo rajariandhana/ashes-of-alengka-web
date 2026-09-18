@@ -12,13 +12,18 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
  * lags behind.
  */
 
-const SHOULDER = "87.7% 30.7%";
-const ELBOW = "86.3% 55%";
+// Joint pins, in the art's own coordinates: the centre of each piece's rounded
+// cap, which is where a real puppet is riveted.
+const SHOULDER = "86.7% 32.4%";
+const ELBOW = "88.2% 54.4%";
 
-// The limb art ships on the same canvas as the body but unposed -- in the game
-// Godot places the rigid bodies at runtime. This nudges the whole arm chain
-// back onto the body's shoulder.
-const ARM_OFFSET = "translate(-12.7%, 1.45%)";  // applied to a plain wrapper
+// Every limb ships on the same 480x691 canvas as the body, but parked in the
+// empty space beside it -- in the game Godot pins the rigid bodies on at
+// runtime. These put each piece back on its joint: the upper arm's cap onto the
+// body's shoulder stub, then the lower arm's cap onto the upper arm's elbow.
+// The two pieces are parked separately, so they need separate offsets.
+const ARM_OFFSET = "translate(-13.1%, -0.29%)";
+const LOWER_ARM_OFFSET = "translate(7.29%, -0.14%)";
 
 const COOLDOWN_MS = 2000;
 
@@ -105,38 +110,49 @@ export default function PuppetRig() {
                 className="absolute inset-0"
                 style={{ rotate: shoulderLag, transformOrigin: SHOULDER }}
               >
-              <motion.div
-                className="absolute inset-0"
-                style={{ transformOrigin: SHOULDER }}
-                animate={swinging ? { rotate: [0, -104, 18, 0] } : { rotate: 0 }}
-                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                onAnimationComplete={() => setSwinging(false)}
-              >
-                <img
-                  src="/assets/anoman-forearm.png"
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-contain"
-                />
-
-                {/* elbow joint */}
                 <motion.div
                   className="absolute inset-0"
-                  style={{ rotate: elbowLag, transformOrigin: ELBOW }}
+                  style={{ transformOrigin: SHOULDER }}
+                  animate={
+                    swinging ? { rotate: [0, -104, 18, 0] } : { rotate: 0 }
+                  }
+                  transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
                 >
+                  <img
+                    src="/assets/anoman-forearm.png"
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-contain"
+                  />
+
+                  {/* elbow joint */}
                   <motion.div
                     className="absolute inset-0"
-                    style={{ transformOrigin: ELBOW }}
-                    animate={
-                      swinging ? { rotate: [0, 42, -68, 12, 0] } : { rotate: 0 }
-                    }
-                    transition={{ duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ rotate: elbowLag, transformOrigin: ELBOW }}
                   >
-                    <img
-                      src="/assets/anoman-arm.png"
-                      alt=""
-                      className="absolute inset-0 h-full w-full object-contain"
-                    />
-                  </motion.div>
+                    {/* the elbow outlasts the shoulder, so the swing is only
+                        over once this one lands */}
+                    <motion.div
+                      className="absolute inset-0"
+                      style={{ transformOrigin: ELBOW }}
+                      animate={
+                        swinging
+                          ? { rotate: [0, 42, -68, 12, 0] }
+                          : { rotate: 0 }
+                      }
+                      transition={{ duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
+                      onAnimationComplete={() => setSwinging(false)}
+                    >
+                      <div
+                        className="absolute inset-0"
+                        style={{ transform: LOWER_ARM_OFFSET }}
+                      >
+                        <img
+                          src="/assets/anoman-arm.png"
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-contain"
+                        />
+                      </div>
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               </motion.div>
@@ -152,9 +168,9 @@ export default function PuppetRig() {
 
         {/* attack indicator, same 1.0 / 0.5 opacity the game uses */}
         <motion.img
-          src="/assets/attack-indicator.png"
+          src="/assets/kris-jawa.png"
           alt=""
-          className="pointer-events-none absolute right-6 top-6 h-10 w-10"
+          className="pointer-events-none absolute right-6 top-6 h-16 w-16"
           animate={{ opacity: ready ? 1 : 0.5 }}
           transition={{ duration: 0.25 }}
         />
