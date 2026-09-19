@@ -57,17 +57,17 @@ const TEAM = [
     photo: "/assets/team/farrel.jpeg",
     link: "https://www.linkedin.com/in/farrell-simarmata-8900a2308/",
   },
-  {
-    name: "Rogelio Kenny Arisandi",
-    role: "Development",
-    photo: "/assets/team/kenny.jpeg",
-    link: "https://www.linkedin.com/in/rogelio-kenny-arisandi/",
-  },
-  {
+	{
     name: "Ralfazza Rajariandhana",
-    role: "Development",
+    role: "Programming",
     photo: "/assets/team/ralfazza-rajariandhana.webp",
     link: "https://ralfazza.com",
+  },
+  {
+    name: "Rogelio Kenny Arisandi",
+    role: "Programming",
+    photo: "/assets/team/kenny.jpeg",
+    link: "https://www.linkedin.com/in/rogelio-kenny-arisandi/",
   },
 ];
 

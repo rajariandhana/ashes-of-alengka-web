@@ -1,4 +1,4 @@
-export const PLAY_LINK = "https://ashes-of-alengka.ralfazza.com";
+export const PLAY_LINK = "https://play.ashesofalengka.com";
 export const REPO_LINK = "https://github.com/rajariandhana/Wayang";
 
 export const NAV_LINKS = [
